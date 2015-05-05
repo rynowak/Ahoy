@@ -2,7 +2,7 @@
 using Microsoft.Framework.DependencyInjection;
 using Microsoft.Framework.OptionsModel;
 using Microsoft.AspNet.Mvc;
-using Microsoft.AspNet.Mvc.Description;
+using Microsoft.AspNet.Mvc.ApiExplorer;
 using Microsoft.AspNet.Http;
 using Newtonsoft.Json.Serialization;
 using Swashbuckle.Swagger;
