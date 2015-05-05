@@ -15,11 +15,12 @@ namespace Swashbuckle.Application
         public SwaggerUiController(IApplicationEnvironment applicationEnvironment)
         {
             var thisAssembly = GetType().GetTypeInfo().Assembly;
+            var names = thisAssembly.GetManifestResourceNames();
             var customAssetsPath = applicationEnvironment.ApplicationBasePath + "/SwaggerUi";
             _fileProviders = new IFileProvider[]
             {
                 new PhysicalFileProvider(customAssetsPath),
-                new EmbeddedFileProvider(thisAssembly, "bower_components/swagger-ui/dist")
+                new EmbeddedFileProvider(thisAssembly, "Swashbuckle.SwaggerUi.bower_components.swagger_ui.dist")
             };
         }
 
