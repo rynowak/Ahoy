@@ -10,6 +10,7 @@
     "Microsoft.AspNet.Mvc": "6.0.0-beta5-*",
     "Microsoft.AspNet.FileProviders.Embedded": "1.0.0-beta5-*",
     "Microsoft.AspNet.FileProviders.Physical": "1.0.0-beta5-*",
+    "Microsoft.AspNet.StaticFiles": "1.0.0-beta5-*",
     "System.Reflection": "4.0.10-beta-*"
   },
 

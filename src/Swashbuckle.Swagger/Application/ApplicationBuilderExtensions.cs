@@ -1,23 +1,19 @@
 ﻿using System;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Http;
-using Microsoft.AspNet.Routing;
 using Swashbuckle.Swagger;
 
 namespace Swashbuckle.Application
 {
     public static class ApplicationBuilderExtensions
     {
-        public static void EnableSwagger(
-            this IRouteBuilder routeBuilder,
+        public static void UseSwagger(
+            this IApplicationBuilder app,
             string routeTemplate = "swagger/{apiVersion}/swagger.json")
         {
-            ThrowIfSwaggerServicesNotRegistered(routeBuilder.ServiceProvider);
+            ThrowIfSwaggerServicesNotRegistered(app.ApplicationServices);
 
-            routeBuilder.MapRoute(
-                "swagger_docs",
-                routeTemplate,
-                new { controller = "SwaggerDocs", action = "GetDocs" });
+            app.UseMiddleware<SwaggerMiddleware>(routeTemplate);
         }
 
         private static void ThrowIfSwaggerServicesNotRegistered(IServiceProvider serviceProvider)
